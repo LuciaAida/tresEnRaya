@@ -11,8 +11,8 @@ function App() {
         <div id="contenedor-juego">
           <div>
             <ol id="jugadores">
-              <Jugador nombre="Jugador 1" simbolo="X"/>
-              <Jugador nombre="Jugador 2" simbolo="0"/>
+              <Jugador nombreInicial="Jugador 1" simbolo="X"/>
+              <Jugador nombreInicial="Jugador 2" simbolo="0"/>
             </ol>
           </div>
           Tablón de juego
