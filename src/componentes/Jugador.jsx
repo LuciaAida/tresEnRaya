@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Jugador({nombreInicial, simbolo}){
+export default function Jugador({nombreInicial, simbolo, estaActivo}){
     const[nombre, setNombre] =useState(nombreInicial);
     const[editando, setEditando] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Jugador({nombreInicial, simbolo}){
         setNombre(evento.target.value); //valor que el usuario introduce
     }
     return(
-        <li>
+        <li className={estaActivo ? 'activo' : undefined}>
             <span className="jugador-nombre">
                 {editando ? <input type="text" required value={nombre} onChange={cambiarNombreJug}/> :  <span className="jugador-nombre">{nombre}</span>}
                 <span className="jugador-simbolo">{simbolo}</span>

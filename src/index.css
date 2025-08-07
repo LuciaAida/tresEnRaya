@@ -73,13 +73,13 @@ h1 {
   border: 2px solid transparent;
 }
 
-#jugadores li.active {
+#jugadores.recuadro-jugador li.activo {
   border-color: #f6e35a;
   animation: pulse 2s infinite ease-in-out;
 }
 
-#jugadores li.active .jugador-nombre,
-#jugadores li.active .jugador-simbolo {
+#jugadores.recuadro-jugador li.activo .jugador-nombre,
+#jugadores.recuadro-jugador li.activo .jugador-simbolo {
   color: #f6e35a;
 }
 
