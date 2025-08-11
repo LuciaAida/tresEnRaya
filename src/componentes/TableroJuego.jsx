@@ -1,23 +1,30 @@
-import { useState } from "react";
-
 const tableroInicial = [
     [null,null,null],
     [null,null,null],
     [null,null,null]
 ];
 
-export default function TableroJuego({cambioJugador, simboloJug}){
-    const[tablero, setTablero] =useState(tableroInicial);
+export default function TableroJuego({cambioJugador, turnos}){
+    let tablero = tableroInicial; //sobreescribir con datos de turnos
 
-    function actualizarTablero(indiceFil, indiceCol){
-        setTablero((tableroAnt) => {
-            const tableroActualizado = [...tableroAnt.map(arrayInterno =>[...arrayInterno])]; //nuevo array(otros arrays), antiguos elementos
-            tableroActualizado[indiceFil][indiceCol] = simboloJug;
-            return tableroActualizado;
-        });
+    for(const turno of turnos){
+        const{ cuadrado, jugador} = turno;
+        const{fila, col} = cuadrado;
 
-        cambioJugador();
+        tablero[fila][col] = jugador;
     }
+
+    // const[tablero, setTablero] =useState(tableroInicial);
+
+    // function actualizarTablero(indiceFil, indiceCol){
+    //     setTablero((tableroAnt) => {
+    //         const tableroActualizado = [...tableroAnt.map(arrayInterno =>[...arrayInterno])]; //nuevo array(otros arrays), antiguos elementos
+    //         tableroActualizado[indiceFil][indiceCol] = simboloJug;
+    //         return tableroActualizado;
+    //     });
+
+    //     cambioJugador();
+    // }
 
     return(
         <ol id="tablero">
@@ -26,9 +33,8 @@ export default function TableroJuego({cambioJugador, simboloJug}){
                     <ol>
                         {fila.map((simboloJug, indiceCol) =>(
                         <li key={indiceCol}>
-                            <button onClick={() => 
-                                actualizarTablero(indiceFil, indiceCol)
-                            }>
+                            <button onClick={() => cambioJugador(indiceFil, indiceCol)} 
+                                disabled={simboloJug !== null}>
                                 {simboloJug}
                             </button>
                         </li>

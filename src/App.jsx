@@ -2,13 +2,40 @@ import Header from "./Header.jsx"
 import Jugador from "./componentes/Jugador.jsx"
 import TableroJuego from "./componentes/TableroJuego.jsx"
 import { useState } from "react";
+import Registro from "./componentes/Registro.jsx";
+
+
+function jugadorActualJuego(turnosJuego){
+   //estado actual
+  let jugadorActual = 'X';
+
+  if((turnosJuego.length > 0) && (turnosJuego[0].jugador === 'X')){ //miramos último turno
+      jugadorActual = 'O';
+  }
+
+  return jugadorActual;
+}
 
 function App() {
-  const[jugadorActivo, setJugadorActivo] =useState('X');
+  const [turnosJuego, setTurnosJuego] = useState([]); //matriz datos
+  
+  const jugadorActivo = jugadorActualJuego(turnosJuego);
 
-  function cambiarJugador(){
-    setJugadorActivo((jugadorActivo) => jugadorActivo ==='X' ? 'O':'X');
+  function cambiarJugador(indiceFil, indiceCol){
+   
+    setTurnosJuego(antiguosTurnos => {
+      //estado antiguo
+      const jugadorActual = jugadorActualJuego(antiguosTurnos);
+
+      const turnosActualizados = [
+        { cuadrado:{ fila: indiceFil, col: indiceCol}, jugador: jugadorActual } ,
+        ...antiguosTurnos,
+      ];
+
+      return turnosActualizados;
+    });
   }
+
   return (
     <div>
       <Header></Header>
@@ -20,10 +47,9 @@ function App() {
               <Jugador nombreInicial="Jugador 2" simbolo="O" estaActivo={jugadorActivo === 'O'}/>
             </ol>
           </div>
-          <TableroJuego cambioJugador={cambiarJugador} simboloJug={jugadorActivo}/>
+          <TableroJuego cambioJugador={cambiarJugador} turnos={turnosJuego}/>
         </div>
-
-        Log
+        <Registro turnos={turnosJuego}/>
       </main>
     </div>
   )
