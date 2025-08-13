@@ -152,8 +152,8 @@ h1 {
   padding: 1rem;
 }
 
-/* --- GAME OVER --- */
-#game-over {
+/* --- FIN DEL JUEGO --- */
+#fin-juego {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -165,18 +165,18 @@ h1 {
   animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 }
 
-#game-over h2 {
+#fin-juego h2 {
   font-family: 'Caprasimo', cursive;
   font-size: 4rem;
   color: #fcd256;
 }
 
-#game-over p {
+#fin-juego p {
   font-size: 2rem;
   color: #e1dec7;
 }
 
-#game-over button {
+#fin-juego button {
   margin-top: 2rem;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
@@ -189,7 +189,7 @@ h1 {
   box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
 }
 
-#game-over button:hover {
+#fin-juego button:hover {
   background: #fcd256;
   color: #3f3b00;
   transform: scale(1.1);
@@ -214,46 +214,6 @@ h1 {
 #registro li.highlighted {
   background-color: #3f3b00;
   color: white;
-}
-
-/* --- PRE-GAME --- */
-#pre-game {
-  text-align: center;
-}
-
-#pre-game button {
-  background: none;
-  border: none;
-  color: #f8c031;
-  font-family: 'Caprasimo', cursive;
-  font-size: 4rem;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
-  animation: pulse-text-size 2s infinite ease-out;
-  cursor: pointer;
-}
-
-/* --- HINTS --- */
-#game-hints {
-  text-align: center;
-  color: #46432f;
-}
-
-#game-hints h2 {
-  font-family: 'Caprasimo', cursive;
-  font-size: 2rem;
-}
-
-#game-hints ul {
-  list-style: none;
-}
-
-#game-hints button {
-  background: none;
-  border: none;
-  color: #23221f;
-  font: inherit;
-  margin-top: 1.5rem;
-  cursor: pointer;
 }
 
 /* --- ANIMACIONES --- */

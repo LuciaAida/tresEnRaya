@@ -1,31 +1,4 @@
-const tableroInicial = [
-    [null,null,null],
-    [null,null,null],
-    [null,null,null]
-];
-
-export default function TableroJuego({cambioJugador, turnos}){
-    let tablero = tableroInicial; //sobreescribir con datos de turnos
-
-    for(const turno of turnos){
-        const{ cuadrado, jugador} = turno;
-        const{fila, col} = cuadrado;
-
-        tablero[fila][col] = jugador;
-    }
-
-    // const[tablero, setTablero] =useState(tableroInicial);
-
-    // function actualizarTablero(indiceFil, indiceCol){
-    //     setTablero((tableroAnt) => {
-    //         const tableroActualizado = [...tableroAnt.map(arrayInterno =>[...arrayInterno])]; //nuevo array(otros arrays), antiguos elementos
-    //         tableroActualizado[indiceFil][indiceCol] = simboloJug;
-    //         return tableroActualizado;
-    //     });
-
-    //     cambioJugador();
-    // }
-
+export default function TableroJuego({cambioJugador, tablero}){
     return(
         <ol id="tablero">
            {tablero.map((fila, indiceFil) => (

@@ -1,13 +1,17 @@
 import { useState } from "react";
 
-export default function Jugador({nombreInicial, simbolo, estaActivo}){
+export default function Jugador({nombreInicial, simbolo, estaActivo,cambiarNombre}){
     const[nombre, setNombre] =useState(nombreInicial);
     const[editando, setEditando] = useState(false);
 
     function poderEditar(){
         setEditando((editando) => !editando);
-    }
 
+        if(editando){
+            cambiarNombre(simbolo, nombre);
+        }
+    }
+       
     function cambiarNombreJug(evento){
         setNombre(evento.target.value); //valor que el usuario introduce
     }
